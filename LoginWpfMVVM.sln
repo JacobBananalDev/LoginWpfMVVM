@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWpfMVVM", "LoginWpfMVVM\LoginWpfMVVM.csproj", "{F2829642-0DD8-49A8-9D0A-6D4726F7FCDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWpfMVVM.Data", "LoginWpfMVVM.Data\LoginWpfMVVM.Data.csproj", "{43C08A0A-8C4C-40CA-8706-007CB5E246AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F2829642-0DD8-49A8-9D0A-6D4726F7FCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2829642-0DD8-49A8-9D0A-6D4726F7FCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2829642-0DD8-49A8-9D0A-6D4726F7FCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C08A0A-8C4C-40CA-8706-007CB5E246AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C08A0A-8C4C-40CA-8706-007CB5E246AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C08A0A-8C4C-40CA-8706-007CB5E246AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C08A0A-8C4C-40CA-8706-007CB5E246AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
