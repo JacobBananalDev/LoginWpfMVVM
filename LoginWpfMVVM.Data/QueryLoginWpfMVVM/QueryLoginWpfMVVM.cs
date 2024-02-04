@@ -35,43 +35,35 @@ namespace LoginWpfMVVM.Data.QueryLoginWpfMVVM
         {
             bool addedSuccessfully = false;
 
-            string query = "INSERT INTO LoginUser (Username,[UserPassword],FirstName,LastName,Email) VALUES (@Username,@[UserPassword],@FirstName, @LastName, @Email)";
-
+            string query = "INSERT INTO LoginUser (Username,UserPassword,FirstName,LastName,Email) VALUES (@Username,@UserPassword,@FirstName, @LastName, @Email)";
 
             SqlConnection sqlConnection = GetConnection();
 
             try
             {
-
-                if (sqlConnection.State != System.Data.ConnectionState.Open)
+                using (SqlCommand command = new SqlCommand(query, sqlConnection))
                 {
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.Parameters.AddWithValue("@UserPassword", user.Password);
+                    command.Parameters.AddWithValue("@FirstName", user.FirstName);
+                    command.Parameters.AddWithValue("@LastName", user.LastName);
+                    command.Parameters.AddWithValue("@Email", user.Email);
+
                     sqlConnection.Open();
+                    var result = command.ExecuteNonQuery();
 
-                    using (SqlCommand command = new SqlCommand(query))
+                    if (result == 1)
                     {
-                        command.Parameters.AddWithValue("@Username", user.Username);
-                        command.Parameters.AddWithValue("@[UserPassword]", user.Password);
-                        command.Parameters.AddWithValue("@FirstName", user.FirstName);
-                        command.Parameters.AddWithValue("@LastName", user.LastName);
-                        command.Parameters.AddWithValue("@Email", user.Email);
-
-                        var result = command.ExecuteNonQuery();
-
-                        if (result == -1)
-                        {
-                            addedSuccessfully = true;
-                        }
+                        addedSuccessfully = true;
                     }
 
+                    sqlConnection.Close();
                 }
             }
             catch (Exception ex)
             {
                 HandleException(ex);
-            }
-            finally
-            {
-                sqlConnection.Close();
+                addedSuccessfully = false;
             }
 
             return addedSuccessfully;
