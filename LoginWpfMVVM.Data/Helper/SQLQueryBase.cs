@@ -19,5 +19,10 @@ namespace LoginWpfMVVM.Data.Helper
         {
             return new SqlConnection(m_connectionString);
         }
+
+        protected void HandleException(Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
     }
 }
